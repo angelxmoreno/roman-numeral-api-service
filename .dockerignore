@@ -103,3 +103,9 @@ dist
 # TernJS port file
 .tern-port
 build
+
+# other ignores not in .gitignore
+.qovery.yml
+Dockerfile
+docker-compose.yml
+dcoker

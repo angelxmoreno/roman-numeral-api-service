@@ -12,7 +12,6 @@ server.use(requestId());
 server.use(requestLogger());
 server.use(compression());
 useExpressServer(server, {
-    routePrefix: Env.getString('API_PREFIX', ''),
     cors: true,
     defaultErrorHandler: false,
     controllers: [`${__dirname}/controllers/*`],
