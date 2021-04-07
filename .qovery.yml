@@ -1,0 +1,11 @@
+---
+application:
+  name: "roman-numeral-api-service"
+  project: "roman-numeral-api"
+  organization: "QoveryCommunity"
+routers:
+- name: "main-roman-numeral-api-service"
+  routes:
+  - application_name: "roman-numeral-api-service"
+    paths:
+    - "/*"
