@@ -3,10 +3,13 @@ application:
   name: "roman-numeral-api-service"
   project: "roman-numeral-api"
   organization: "QoveryCommunity"
-  databases:
-    - type: mysql
-      version: 8.0
-      name: my-mysql
+databases:
+- type: "MYSQL"
+  name: "romnumdb"
+  version: "8.0"
+- type: "REDIS"
+  name: "romnumrd"
+  version: "5"
 routers:
 - name: "main-roman-numeral-api-service"
   routes:
