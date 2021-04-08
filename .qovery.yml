@@ -3,6 +3,10 @@ application:
   name: "roman-numeral-api-service"
   project: "roman-numeral-api"
   organization: "QoveryCommunity"
+  databases:
+    - type: mysql
+      version: 8.0
+      name: my-mysql
 routers:
 - name: "main-roman-numeral-api-service"
   routes:
