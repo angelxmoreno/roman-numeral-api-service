@@ -3,6 +3,7 @@ application:
   name: "roman-numeral-api-service"
   project: "roman-numeral-api"
   organization: "QoveryCommunity"
+  publicly_accessible: true
 databases:
 - type: "MYSQL"
   name: "romnumdb"

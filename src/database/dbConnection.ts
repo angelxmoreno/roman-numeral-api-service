@@ -1,7 +1,6 @@
 import {getConnectionManager} from "typeorm";
 import Env from "../utils/Env";
 
-console.log('Env.getString(\'DATABASE_URL\')',Env.getString('DATABASE_URL'))
 const connectionManager = getConnectionManager();
 const dbConnection = connectionManager.create({
     type: "mysql",
