@@ -13,6 +13,9 @@ services:
       - ../:/app:delegated
     ports:
       - ${NODE_PORT}:3000
+    links:
+      - mysql
+      - redis
 
   mysql:
     container_name: ${APP_PREFIX}-mariadb

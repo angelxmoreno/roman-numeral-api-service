@@ -41,9 +41,11 @@
     "getenv.ts": "^1.2.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "roman-numerals": "^0.3.2",
     "routing-controllers": "^0.9.0",
+    "typeorm": "^0.2.32",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
   }
