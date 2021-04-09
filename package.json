@@ -22,6 +22,7 @@
     "@types/morgan": "^1.9.2",
     "@types/multer": "^1.4.5",
     "@types/node": "^14.14.37",
+    "@types/pluralize": "^0.0.29",
     "@types/roman-numerals": "^0.3.0",
     "@types/uuid": "^8.3.0",
     "nodemon": "^2.0.7",
@@ -42,10 +43,12 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
+    "pluralize": "^8.0.0",
     "reflect-metadata": "^0.1.13",
     "roman-numerals": "^0.3.2",
     "routing-controllers": "^0.9.0",
     "typeorm": "^0.2.32",
+    "typeorm-naming-strategies": "^2.0.0",
     "uuid": "^8.3.2",
     "winston": "^3.3.3"
   }
