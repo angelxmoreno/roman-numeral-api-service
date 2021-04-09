@@ -2,10 +2,11 @@ import {BaseEntity, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryG
 import {RequestWithId} from "../../middlewares/requestId";
 import {getClientIp} from '@supercharge/request-ip';
 import {Request} from "express";
+import Env from "../../utils/Env";
 
-const INTERVAL_TYPE = 'MINUTE';
-const INTERVAL_UNITS = 5;
-const INTERVAL_MAX = 5;
+const INTERVAL_TYPE = Env.getString('ANON_INTERVAL_TYPE', 'MINUTE');
+const INTERVAL_UNITS = Env.getInteger('ANON_INTERVAL_UNITS', 5);
+const INTERVAL_MAX = Env.getInteger('ANON_INTERVAL_MAX', 5);
 
 @Entity()
 export default class AnonymousUserEntity extends BaseEntity {
