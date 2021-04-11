@@ -6,6 +6,7 @@ import {NotFoundMiddleware} from './middlewares/NotFoundMiddleware';
 import Env from "./utils/Env";
 import requestLogger from "./middlewares/requestLogger";
 import requestId from "./middlewares/requestId";
+import UserEntity from "./database/entities/UserEntity";
 
 const server: Application = express(); // your created express server
 server.use(requestId());
@@ -17,6 +18,7 @@ useExpressServer(server, {
     controllers: [`${__dirname}/controllers/*`],
     middlewares: [NotFoundMiddleware, JsonErrorHandler],
     development: Env.isDevelopment(),
+    currentUserChecker: action => UserEntity.getByRequest(action.request)
 });
 
 

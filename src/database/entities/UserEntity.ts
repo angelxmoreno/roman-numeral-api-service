@@ -10,6 +10,8 @@ import {
 import bcrypt from 'bcryptjs';
 import {v4 as uuidV4} from "uuid";
 import {Exclude} from "class-transformer";
+import {Request} from "express";
+import JwtService from "../../utils/JwtService";
 
 @Entity()
 export default class UserEntity extends BaseEntity {
@@ -47,5 +49,13 @@ export default class UserEntity extends BaseEntity {
         this.password = bcrypt.hashSync(this.password, salt);
         this.apiKey = uuidV4().replace('-', '').toLowerCase();
         this.allowedDomains = [];
+    }
+
+    static async getByRequest(request: Request): Promise<UserEntity | undefined> {
+        const authorization = request.header('Authorization');
+        const jwt = authorization?.split(' ')[1];
+        return jwt
+            ? await JwtService.toUser(jwt)
+            : undefined;
     }
 }
