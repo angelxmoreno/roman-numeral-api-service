@@ -24,7 +24,7 @@ export default class UserEntity extends BaseEntity {
     @Column({unique: true})
     email!: string
 
-    @Column({select: false})
+    @Column()
     @Exclude()
     password!: string
 
@@ -52,10 +52,32 @@ export default class UserEntity extends BaseEntity {
     }
 
     static async getByRequest(request: Request): Promise<UserEntity | undefined> {
+        const byToken = await this.getByAuthToken(request);
+        if (byToken) return byToken;
+
+        const byQueryParam = await this.getByQueryParam(request);
+        if (byQueryParam) return byQueryParam;
+
+        return undefined;
+
+    }
+
+    protected static async getByAuthToken(request: Request): Promise<UserEntity | undefined> {
         const authorization = request.header('Authorization');
         const jwt = authorization?.split(' ')[1];
         return jwt
             ? await JwtService.toUser(jwt)
             : undefined;
+    }
+
+    protected static async getByQueryParam(request: Request): Promise<UserEntity | undefined> {
+        const {api_key} = request.query
+        if (!api_key) return undefined;
+
+        return this.findOne({
+            where: {
+                apiKey: api_key
+            }
+        })
     }
 }
